@@ -22,20 +22,16 @@ namespace Myrmec
         /// </summary>
         /// <param name="extentions">extentions string ,split with "," what if it has many.</param>
         /// <param name="hex">hex string, split with ",".</param>
-        /// <param name="offset">the file head offset, default is 0.</param>
-        /// <param name="description">description for this format.</param>
-        public Record(string extentions, string hex, int offset = 0, string description = null)
+        public Record(string extentions, string hex)
         {
             Extentions = extentions;
-            Offset = offset;
             Hex = hex;
-            Description = description;
         }
 
-        /// <summary>
-        /// Gets or sets Description
-        /// </summary>
-        public string Description { get; set; }
+        ///// <summary>
+        ///// Gets or sets Description
+        ///// </summary>
+        // public string Description { get; set; }
 
         /// <summary>
         /// Gets or sets file extentions.
@@ -47,9 +43,9 @@ namespace Myrmec
         /// </summary>
         public string Hex { get; set; }
 
-        /// <summary>
-        /// Gets or sets offset
-        /// </summary>
-        public int Offset { get; set; }
+        ///// <summary>
+        ///// Gets or sets offset
+        ///// </summary>
+        // public int Offset { get; set; }
     }
 }
