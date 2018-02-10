@@ -28,10 +28,23 @@ namespace Myrmec
             Hex = hex;
         }
 
-        ///// <summary>
-        ///// Gets or sets Description
-        ///// </summary>
-        // public string Description { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Record"/> class.
+        /// </summary>
+        /// <param name="extentions">extentions string ,split with "," what if it has many.</param>
+        /// <param name="hex">hex string, split with ",".</param>
+        /// <param name="description">description</param>
+        public Record(string extentions, string hex, string description)
+        {
+            Extentions = extentions;
+            Hex = hex;
+            Description = description;
+        }
+
+        /// <summary>
+        /// Gets or sets Description
+        /// </summary>
+        public string Description { get; set; }
 
         /// <summary>
         /// Gets or sets file extentions.

@@ -5,7 +5,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Myrmec
 {
@@ -14,6 +13,11 @@ namespace Myrmec
     /// </summary>
     public class Sniffer
     {
+        /// <summary>
+        /// You can get the file extention name detail in this wikipedia page.
+        /// </summary>
+        public const string FileExtentionHelpUrl = "https://en.wikipedia.org/wiki/List_of_file_signatures";
+
         private Node _root;
 
         /// <summary>
@@ -46,7 +50,6 @@ namespace Myrmec
         /// <returns>matched result</returns>
         public List<string> Match(byte[] data, bool matchAll = false)
         {
-
             List<string> extentionStore = new List<string>(4);
             Match(data, 0, _root, extentionStore, matchAll);
             return extentionStore;
@@ -60,7 +63,7 @@ namespace Myrmec
         {
             foreach (var record in records)
             {
-                Add(GetByte(record.Hex), record.Extentions.Split(','));
+                Add(GetByte(record.Hex), record.Extentions.Split(',', ' '));
             }
         }
 
@@ -110,7 +113,7 @@ namespace Myrmec
         /// <returns>result byte array.</returns>
         private byte[] GetByte(string source)
         {
-            var array = source.Split(',');
+            var array = source.Split(',', ' ');
             var byteArr = new byte[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
@@ -122,9 +125,14 @@ namespace Myrmec
 
         private void Match(byte[] data, int depth, Node node, List<string> extentionStore, bool matchAll)
         {
+            // if depth out of data.Length's index then data end.
+            if (data.Length == depth)
+            {
+                return;
+            }
             var current = node.Children.GetValueOrDefault(data[depth]);
 
-            // can't find matched node, eatch ended.
+            // can't find matched node, match ended.
             if (current == null)
             {
                 return;

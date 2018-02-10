@@ -3,9 +3,7 @@
 // Licensed under the Apache v2 license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Myrmec
 {
@@ -30,7 +28,6 @@ namespace Myrmec
                 new Record("rpm","ed ab ee db"),
                 new Record("bin","53 50 30 31"),
                 new Record("ico","00 00 01 00"),
-                new Record("3gp,3g2","66 74 79 70 33 67"),
                 new Record("z,tar.z","1F 9D"),
                 new Record("z,tar.z","1F A0"),
                 new Record("bac","42 41 43 4B 4D 49 4B 45 44 49 53 4B"),

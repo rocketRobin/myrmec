@@ -26,6 +26,10 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+
+// This file copied from mimekit repo see https://github.com/jstedfast/MimeKit .
+
+
 using System;
 using System.Collections.Generic;
 
@@ -601,26 +605,18 @@ namespace Myrmec
         /// Gets the MIME-type of the file based on the file extension.
         /// </summary>
         /// <returns>The MIME-type.</returns>
-        /// <param name="fileName">The file name.</param>
+        /// <param name="extention">The file name extention.</param>
         /// <exception cref="System.ArgumentNullException">
-        /// <paramref name="fileName"/> is <c>null</c>.
+        /// <paramref name="extention"/> is <c>null</c>.
         /// </exception>
-        public static string GetMimeType(string fileName)
+        public static string GetMimeType(string extention)
         {
-            if (fileName == null)
+            if (extention == null)
             {
-                throw new ArgumentNullException(nameof(fileName));
+                throw new ArgumentNullException(nameof(extention));
             }
 
-            int dot = fileName.LastIndexOf('.');
-            string mimeType = null;
-
-            if (dot != -1 && fileName.Length > dot + 1)
-            {
-                MimeTypeDictionary.TryGetValue(fileName.Substring(dot + 1), out mimeType);
-            }
-
-            if (mimeType == null)
+            if (!MimeTypeDictionary.TryGetValue(extention, out string mimeType))
             {
                 mimeType = "application/octet-stream";
             }
