@@ -7,7 +7,7 @@ That was very easy.
 
 ### Install from nuget ###
 
-	nuget install merymec
+	nuget install myrmec
 
 ### Write code ###
 
