@@ -63,3 +63,28 @@ The result is
 
 	image/png
 
+### Matedate source ###
+
+the matedata information from wiki pedia [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures).
+
+
+### Not support ###
+
+The file type matedate only suport that file hex head has no offset and byte value continuous, for example, the following examples do not support:
+
+Jpg file
+
+	jpg file head not support: FF D8 FF E0 ?? ?? 4A 46 49 46 00 01
+
+this format middle part allows an arbitrary value, but another jpg format is supported:
+
+Jpg file
+
+	jpg file head supported: FF D8 FF DB 
+
+PDB file
+
+	PDB file head not support: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+this format has offset 11,so not support.
+

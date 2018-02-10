@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>rocket robin</Authors>
+    <Company />
+    <Product>MyrmecSniffer</Product>
+    <Description>Myrmec is a library that used to identifie real file format type by detecting the file binary head with out file extention.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
