@@ -7,7 +7,10 @@ That was very easy.
 
 ### Install from nuget ###
 
-	nuget install myrmec
+	Install-Package Myrmec
+### Or DotNet cli ###
+	
+	dotnet add package Myrmec
 
 ### Write code ###
 
