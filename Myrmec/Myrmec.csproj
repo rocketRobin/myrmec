@@ -7,6 +7,13 @@
     <Company />
     <Product>MyrmecSniffer</Product>
     <Description>Myrmec is a library that used to identifie real file format type by detecting the file binary head with out file extention.</Description>
+    <Copyright>Copyright (c) Rocket Robin</Copyright>
+    <PackageLicenseUrl>https://github.com/rocketRobin/myrmec/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/rocketRobin/myrmec</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rocketRobin/myrmec</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>file format,file type</PackageTags>
+    <PackageReleaseNotes>Myrmec is a library that used to identifie real file format type by detecting the file binary head with out file extention.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,6 +24,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <CodeAnalysisRuleSet>Myrmec.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
