@@ -1,5 +1,10 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+// <copyright file="MyrmecTest.cs" company="Rocket Robin">
+// Copyright (c) Rocket Robin. All rights reserved.
+// Licensed under the Apache v2 license. See LICENSE file in the project root for full license information.
+// </copyright>
+
 using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Myrmec.Test
 {
