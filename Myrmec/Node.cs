@@ -25,7 +25,7 @@ namespace Myrmec
         public SortedList<byte, Node> Children { get; set; }
 
         /// <summary>
-        /// Gets depth.
+        /// Gets or sets depth.
         /// </summary>
         public int Depth { get; set; }
 

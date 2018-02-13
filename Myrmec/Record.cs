@@ -29,11 +29,11 @@ namespace Myrmec
         }
 
         /// <summary>
-        ///
+        /// Initializes a new instance of the <see cref="Record"/> class.
         /// </summary>
-        /// <param name="extentions"></param>
-        /// <param name="hex"></param>
-        /// <param name="offset"></param>
+        /// <param name="extentions">Extentions format string.</param>
+        /// <param name="hex">File hex head format string.</param>
+        /// <param name="offset">Offset of this record.</param>
         public Record(string extentions, string hex, int offset)
         {
             Offset = offset;
@@ -90,7 +90,7 @@ namespace Myrmec
         public int Offset { get; set; }
 
         /// <summary>
-        /// Get the value that idacate this record has offset or contain a variable byte.
+        /// Gets a value indicating whether this record has offset or contain a variable byte or not.
         /// </summary>
         public bool IsComplexMetadata
         {

@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿// <copyright file="Metadata.cs" company="Rocket Robin">
+// Copyright (c) Rocket Robin. All rights reserved.
+// Licensed under the Apache v2 license. See LICENSE file in the project root for full license information.
+// </copyright>
+
+using System.Collections.Generic;
 using System.Text;
 
 namespace Myrmec
@@ -17,12 +22,12 @@ namespace Myrmec
         }
 
         /// <summary>
-        /// Get or set the extention list of this metadata.
+        /// Gets or sets the extention list of this metadata.
         /// </summary>
         public List<string> Extentions { get; set; }
 
         /// <summary>
-        /// Get or set the offset list of one metadata.
+        /// Gets or sets the offset list of one metadata.
         /// </summary>
         public List<Offset> Offsets { get; set; }
 

@@ -11,10 +11,10 @@ namespace Myrmec
     public static class MyrmecExtentions
     {
         /// <summary>
-        ///
+        /// Add metadata into metadata list.
         /// </summary>
-        /// <param name="list"></param>
-        /// <param name="record"></param>
+        /// <param name="list">The target list.</param>
+        /// <param name="record">The metadata record need to add.</param>
         public static void Add(this List<Metadata> list, Record record)
         {
             var metadata = new Metadata()

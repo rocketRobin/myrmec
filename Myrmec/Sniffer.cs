@@ -34,7 +34,7 @@ namespace Myrmec
         }
 
         /// <summary>
-        ///
+        /// Gets or sets ComplexMetadatas.
         /// </summary>
         public List<Metadata> ComplexMetadatas { get; set; }
 
