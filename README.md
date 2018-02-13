@@ -37,7 +37,7 @@ Many times the results has more than one value, because some file format has mul
 	// this will match all result that sniffer matched.
     List<string> results = sniffer.Match(fileHead,true);
 
-### Add your own file format head into matedata ###
+### Add your own file format head into metadata ###
 
 May be you make some file format,or the `FileTypes.CommonFileTypes` not contains the file format that you need, then you can add it in :
 
@@ -66,9 +66,11 @@ The result is
 
 	image/png
 
+
+
 ## Matedate source ##
 
-the matedata information from wiki pedia [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures).
+the metadata information from wiki pedia [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures).
 
 
 ## Not support ##
@@ -90,4 +92,8 @@ PDB file
 	PDB file head not support: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 this format has offset 11,so not support.
+
+## Road Map
+
+1. Next major vertion I will add the support of file format that contains offset or contains arbitrary value.
 
