@@ -29,7 +29,6 @@
 
 // This file copied from mimekit repo see https://github.com/jstedfast/MimeKit .
 
-
 using System;
 using System.Collections.Generic;
 

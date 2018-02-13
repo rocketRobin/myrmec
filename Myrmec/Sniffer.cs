@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Myrmec
 {
@@ -33,6 +34,11 @@ namespace Myrmec
         }
 
         /// <summary>
+        ///
+        /// </summary>
+        public List<Metadata> ComplexMetadatas { get; set; }
+
+        /// <summary>
         /// Add a record to matadata tree.
         /// </summary>
         /// <param name="data">file head.</param>
@@ -52,19 +58,20 @@ namespace Myrmec
         {
             List<string> extentionStore = new List<string>(4);
             Match(data, 0, _root, extentionStore, matchAll);
-            return extentionStore;
-        }
 
-        /// <summary>
-        /// Populate matadata tree use record list.
-        /// </summary>
-        /// <param name="records">Matadate record list.</param>
-        public void Populate(IList<Record> records)
-        {
-            foreach (var record in records)
+            if (matchAll || !extentionStore.Any())
             {
-                Add(GetByte(record.Hex), record.Extentions.Split(',', ' '));
+                // Match data from complex metadata.
+                extentionStore.AddRange(ComplexMetadatas.Match(data, matchAll));
             }
+
+            // Remove repeated extentions.
+            if (matchAll && extentionStore.Any())
+            {
+                extentionStore = extentionStore.Distinct().ToList();
+            }
+
+            return extentionStore;
         }
 
         private void Add(byte[] data, Node parent, string[] extentions, int depth)
@@ -104,23 +111,6 @@ namespace Myrmec
             }
 
             Add(data, current, extentions, depth + 1);
-        }
-
-        /// <summary>
-        /// Get byte array from string.
-        /// </summary>
-        /// <param name="source">byte format string.</param>
-        /// <returns>result byte array.</returns>
-        private byte[] GetByte(string source)
-        {
-            var array = source.Split(',', ' ');
-            var byteArr = new byte[array.Length];
-            for (int i = 0; i < array.Length; i++)
-            {
-                byteArr[i] = Convert.ToByte(array[i], 16);
-            }
-
-            return byteArr;
         }
 
         private void Match(byte[] data, int depth, Node node, List<string> extentionStore, bool matchAll)

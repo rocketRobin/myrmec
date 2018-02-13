@@ -29,6 +29,19 @@ namespace Myrmec
         }
 
         /// <summary>
+        ///
+        /// </summary>
+        /// <param name="extentions"></param>
+        /// <param name="hex"></param>
+        /// <param name="offset"></param>
+        public Record(string extentions, string hex, int offset)
+        {
+            Offset = offset;
+            Extentions = extentions;
+            Hex = hex;
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Record"/> class.
         /// </summary>
         /// <param name="extentions">extentions string ,split with "," what if it has many.</param>
@@ -36,6 +49,21 @@ namespace Myrmec
         /// <param name="description">description</param>
         public Record(string extentions, string hex, string description)
         {
+            Extentions = extentions;
+            Hex = hex;
+            Description = description;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Record"/> class.
+        /// </summary>
+        /// <param name="extentions">extentions string ,split with "," what if it has many.</param>
+        /// <param name="hex">hex string, split with ",".</param>
+        /// <param name="offset"></param>
+        /// <param name="description">description</param>
+        public Record(string extentions, string hex, int offset, string description)
+        {
+            Offset = offset;
             Extentions = extentions;
             Hex = hex;
             Description = description;
@@ -56,9 +84,17 @@ namespace Myrmec
         /// </summary>
         public string Hex { get; set; }
 
-        ///// <summary>
-        ///// Gets or sets offset
-        ///// </summary>
-        // public int Offset { get; set; }
+        /// <summary>
+        /// Gets or sets offset
+        /// </summary>
+        public int Offset { get; set; }
+
+        /// <summary>
+        /// Get the value that idacate this record has offset or contain a variable byte.
+        /// </summary>
+        public bool IsComplexMetadata
+        {
+            get => (Offset > 0) & (Extentions.Contains("?"));
+        }
     }
 }

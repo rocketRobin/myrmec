@@ -3,9 +3,7 @@
 // Licensed under the Apache v2 license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Myrmec
 {
@@ -27,6 +25,11 @@ namespace Myrmec
         public SortedList<byte, Node> Children { get; set; }
 
         /// <summary>
+        /// Gets depth.
+        /// </summary>
+        public int Depth { get; set; }
+
+        /// <summary>
         /// Gets or sets extentions.
         /// </summary>
         public List<string> Extentions { get; set; }
@@ -35,10 +38,5 @@ namespace Myrmec
         /// Gets or sets parent node.
         /// </summary>
         public Node Parent { get; set; }
-
-        /// <summary>
-        /// Gets depth.
-        /// </summary>
-        public int Depth { get;  set; }
     }
 }
