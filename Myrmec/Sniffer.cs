@@ -95,7 +95,11 @@ namespace Myrmec
             }
             else
             {
-                current = parent.Children.GetValueOrDefault(data[depth]);
+                if (!parent.Children.TryGetValue(data[depth], out current))
+                {
+                    throw new Exception("No possibility, something fucked up...");
+                }
+
             }
 
             // last byte, put extentions into Extentions.
@@ -120,7 +124,8 @@ namespace Myrmec
             {
                 return;
             }
-            var current = node.Children.GetValueOrDefault(data[depth]);
+
+            node.Children.TryGetValue(data[depth], out Node current);
 
             // can't find matched node, match ended.
             if (current == null)

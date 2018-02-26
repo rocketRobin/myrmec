@@ -141,7 +141,7 @@ namespace Myrmec
             {
                 Start = start,
                 Count = count,
-                Value = Encoding.ASCII.GetString(string.Join(',', byteStringArray, start, count).GetByte())
+                Value = Encoding.ASCII.GetString(string.Join(",", byteStringArray, start, count).GetByte())
             };
         }
 

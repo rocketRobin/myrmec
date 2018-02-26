@@ -103,11 +103,7 @@ namespace Myrmec
                 new Record("jp2", "00 00 00 0C 6A 50 20 20 0D 0A", "Various JPEG-2000 image file formats"),
                 new Record("ttf", "00 01 00 00 00"),
                 new Record("mdf", "00 FF FF FF FF FF FF FF FF FF FF 00 00 02 00 01"),
-                new Record("ssssssssssss", "                "),
-                new Record("ssssssssssss", "                "),
-                new Record("ssssssssssss", "                "),
-                new Record("ssssssssssss", "                "),
-                new Record("ssssssssssss", "                "),
+
 
                 // Complex file type.
                 new Record("PDB", "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", 11),
