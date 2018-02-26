@@ -31,6 +31,7 @@ namespace Myrmec
                 Children = new SortedList<byte, Node>(128),
                 Depth = -1,
             };
+            ComplexMetadatas = new List<Metadata>(10);
         }
 
         /// <summary>
@@ -46,6 +47,17 @@ namespace Myrmec
         public void Add(byte[] data, string[] extentions)
         {
             Add(data, _root, extentions, 0);
+        }
+        public void Add(Record record)
+        {
+            if (record.IsComplexMetadata)
+            {
+                ComplexMetadatas.Add(record);
+            }
+            else
+            {
+                Add(record.Hex.GetByte(), record.Extentions.Split(',', ' '));
+            }
         }
 
         /// <summary>

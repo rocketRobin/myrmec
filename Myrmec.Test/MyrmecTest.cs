@@ -11,26 +11,26 @@ namespace Myrmec.Test
     [TestClass]
     public class MyrmecTest
     {
-        private Sniffer _sniffer;
 
         public MyrmecTest()
         {
-            _sniffer = new Sniffer();
-            _sniffer.Populate(FileTypes.CommonFileTypes);
+           
         }
 
         [TestMethod]
         public void AddTest()
         {
+            var sniffer = new Sniffer();
+
             var data = new byte[]
             {
                 0x11,
                 0x22,
                 0x33
             };
-            _sniffer.Add(data, new[] { "what", "file", "type" });
+            sniffer.Add(data, new[] { "what", "file", "type" });
 
-            var result = _sniffer.Match(data);
+            var result = sniffer.Match(data);
 
             Assert.IsTrue(result.Contains("what"));
             Assert.IsTrue(result.Contains("file"));
@@ -40,6 +40,9 @@ namespace Myrmec.Test
         [TestMethod]
         public void FindAllTest()
         {
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.CommonFileTypes);
+
             var data = new byte[]
             {
                 0x25,
@@ -49,9 +52,9 @@ namespace Myrmec.Test
                 0x11
             };
 
-            _sniffer.Add(data, new[] { "pdfx" });
+            sniffer.Add(data, new[] { "pdfx" });
 
-            var result = _sniffer.Match(data, true);
+            var result = sniffer.Match(data, true);
             Assert.IsTrue(result.Contains("pdf"));
             Assert.IsTrue(result.Contains("pdfx"));
         }
@@ -59,6 +62,9 @@ namespace Myrmec.Test
         [TestMethod]
         public void MimeTest()
         {
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.CommonFileTypes);
+
             var head = new byte[]
             {
                 0xff,
@@ -67,7 +73,7 @@ namespace Myrmec.Test
                 0xdb
             };
 
-            var result = _sniffer.Match(head);
+            var result = sniffer.Match(head);
             var mimeType = MimeTypes.GetMimeType(result.First());
             Assert.IsTrue(mimeType == "image/jpeg");
         }
@@ -75,6 +81,9 @@ namespace Myrmec.Test
         [TestMethod]
         public void MultipleTest()
         {
+
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.CommonFileTypes);
             var dataZip = new byte[]
             {
                 0x50,
@@ -90,8 +99,8 @@ namespace Myrmec.Test
                 0x06
             };
 
-            var resultZip = _sniffer.Match(dataZip);
-            var resultZipEmpty = _sniffer.Match(dataZipEmpty);
+            var resultZip = sniffer.Match(dataZip);
+            var resultZipEmpty = sniffer.Match(dataZipEmpty);
 
             Assert.IsTrue(resultZip.Contains("zip"));
             Assert.IsTrue(resultZip.Contains("docx"));
@@ -108,6 +117,9 @@ namespace Myrmec.Test
         [TestMethod]
         public void OverlapTest()
         {
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.CommonFileTypes);
+
             var data = new byte[]
             {
                 0xff,
@@ -115,9 +127,9 @@ namespace Myrmec.Test
                 0xff,
                 0xdb
             };
-            _sniffer.Add(data, new[] { "jpegx" });
+            sniffer.Add(data, new[] { "jpegx" });
 
-            var result = _sniffer.Match(data);
+            var result = sniffer.Match(data);
 
             Assert.IsTrue(result.Contains("jpg"));
             Assert.IsTrue(result.Contains("jpeg"));
@@ -127,6 +139,9 @@ namespace Myrmec.Test
         [TestMethod]
         public void SnifferTest()
         {
+
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.CommonFileTypes);
             var head = new byte[]
             {
                 0xff,
@@ -135,10 +150,35 @@ namespace Myrmec.Test
                 0xdb
             };
 
-            var result = _sniffer.Match(head);
+            var result = sniffer.Match(head);
 
             Assert.IsTrue(result.Contains("jpg"));
             Assert.IsTrue(result.Contains("jpeg"));
+        }
+
+        [TestMethod]
+        public void ComplexFileTypeTest()
+        {
+            var sniffer = new Sniffer();
+          //  sniffer.Populate(FileTypes.CommonFileTypes);
+
+            Record record = new Record()
+            {
+                Extentions = "a,b,c",
+                Hex = "0x11 0x22 ?? ?? ?? 0x33",
+                Offset = 2
+            };
+
+            sniffer.Add(record);
+            var data = new byte[]
+            {
+                0x11, 0x11, 0x11, 0x22, 0xff, 0xdd, 0x1d, 0x33
+            };
+            var result = sniffer.Match(data);
+
+            Assert.IsTrue(result.Contains("a"));
+            Assert.IsTrue(result.Contains("b"));
+            Assert.IsTrue(result.Contains("c"));
         }
     }
 }

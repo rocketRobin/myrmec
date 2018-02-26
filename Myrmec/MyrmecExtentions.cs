@@ -126,12 +126,7 @@ namespace Myrmec
         {
             foreach (var record in records)
             {
-                if (record.IsComplexMetadata)
-                {
-                    sniffer.ComplexMetadatas.Add(record);
-                    continue;
-                }
-                sniffer.Add(record.Hex.GetByte(), record.Extentions.Split(',', ' '));
+                sniffer.Add(record);
             }
         }
 
