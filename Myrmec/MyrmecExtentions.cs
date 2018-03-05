@@ -22,11 +22,12 @@ namespace Myrmec
             {
                 Extentions = record.Extentions.Split(',', ' ').ToList()
             };
+            var hex = record.Hex;
             if (record.Offset > 0)
             {
-                record.Hex = Repeat("??", record.Offset, ',') + record.Hex;
+                hex  = Repeat("??", record.Offset, ',') + hex;
             }
-            var byteStringArray = record.Hex.Split(',', ' ');
+            var byteStringArray = hex.Split(',', ' ');
 
             var lastCharIsQuestionMark = true;
 

@@ -16,21 +16,7 @@ namespace Myrmec.Test
         public void Gp3Test()
         {
 
-            var sniffer2 = new Sniffer();
-            sniffer2.Populate(FileTypes.Unfrequent);
-            var data2 = new byte[]
-            {
-                0x11, 0x11, 0x11, 0x22, 0x00,
-                0x66, 0x74, 0x79, 0x70, 0x00,
-                0x33, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00,
-                0x20, 0xff, 0x11, 0x1f, 0x40
-            };
-            var result2 = sniffer2.Match(data2);
-            Assert.IsTrue(result2.Contains("pdb"));
+       
 
             var sniffer = new Sniffer();
             sniffer.Populate(FileTypes.Unfrequent);
@@ -54,7 +40,21 @@ namespace Myrmec.Test
         [TestMethod]
         public void PdbTest()
         {
-          
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.Unfrequent);
+            var data = new byte[]
+            {
+                0x11, 0x11, 0x11, 0x22, 0x00,
+                0x66, 0x74, 0x79, 0x70, 0x00,
+                0x33, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x20, 0xff, 0x11, 0x1f, 0x40
+            };
+            var result = sniffer.Match(data);
+            Assert.IsTrue(result.Contains("pdb"));
         }
 
 
