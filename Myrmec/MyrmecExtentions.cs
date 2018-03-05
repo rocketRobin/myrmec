@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -140,6 +141,7 @@ namespace Myrmec
             };
         }
 
+        [DebuggerStepThrough]
         private static string Repeat(string source, int count, char seprator)
         {
             var sb = new StringBuilder(count);

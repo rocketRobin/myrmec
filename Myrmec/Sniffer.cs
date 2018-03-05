@@ -31,13 +31,13 @@ namespace Myrmec
                 Children = new SortedList<byte, Node>(128),
                 Depth = -1,
             };
-            ComplexMetadatas = new List<Metadata>(10);
+            ComplexMetadata = new List<Metadata>(10);
         }
 
         /// <summary>
         /// Gets or sets ComplexMetadatas.
         /// </summary>
-        public List<Metadata> ComplexMetadatas { get; set; }
+        public List<Metadata> ComplexMetadata { get; set; }
 
         /// <summary>
         /// Add a record to matadata tree.
@@ -48,11 +48,16 @@ namespace Myrmec
         {
             Add(data, _root, extentions, 0);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="record"></param>
         public void Add(Record record)
         {
             if (record.IsComplexMetadata)
             {
-                ComplexMetadatas.Add(record);
+                ComplexMetadata.Add(record);
             }
             else
             {
@@ -74,7 +79,7 @@ namespace Myrmec
             if (matchAll || !extentionStore.Any())
             {
                 // Match data from complex metadata.
-                extentionStore.AddRange(ComplexMetadatas.Match(data, matchAll));
+                extentionStore.AddRange(ComplexMetadata.Match(data, matchAll));
             }
 
             // Remove repeated extentions.

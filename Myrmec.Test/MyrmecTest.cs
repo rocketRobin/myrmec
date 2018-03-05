@@ -3,6 +3,7 @@
 // Licensed under the Apache v2 license. See LICENSE file in the project root for full license information.
 // </copyright>
 
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,11 +12,51 @@ namespace Myrmec.Test
     [TestClass]
     public class MyrmecTest
     {
-
-        public MyrmecTest()
+        [TestMethod]
+        public void Gp3Test()
         {
-           
+
+            var sniffer2 = new Sniffer();
+            sniffer2.Populate(FileTypes.Unfrequent);
+            var data2 = new byte[]
+            {
+                0x11, 0x11, 0x11, 0x22, 0x00,
+                0x66, 0x74, 0x79, 0x70, 0x00,
+                0x33, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00,
+                0x20, 0xff, 0x11, 0x1f, 0x40
+            };
+            var result2 = sniffer2.Match(data2);
+            Assert.IsTrue(result2.Contains("pdb"));
+
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.Unfrequent);
+            var data = new byte[]
+            {
+                0x11, 0x11, 0x11, 0x22,
+                0x66, 0x74, 0x79, 0x70,
+                0x33, 0x67
+            };
+            var result = sniffer.Match(data);
+            Assert.IsTrue(result.Any());
+            Assert.IsTrue(result.Contains("3gp"));
+            Assert.IsTrue(result.Contains("3g2"));
+
+
+
+       
         }
+
+
+        [TestMethod]
+        public void PdbTest()
+        {
+          
+        }
+
 
         [TestMethod]
         public void AddTest()
@@ -41,7 +82,8 @@ namespace Myrmec.Test
         public void FindAllTest()
         {
             var sniffer = new Sniffer();
-            sniffer.Populate(FileTypes.CommonFileTypes);
+            sniffer.Populate(FileTypes.Common);
+            sniffer.Populate(FileTypes.Unfrequent);
 
             var data = new byte[]
             {
@@ -63,7 +105,8 @@ namespace Myrmec.Test
         public void MimeTest()
         {
             var sniffer = new Sniffer();
-            sniffer.Populate(FileTypes.CommonFileTypes);
+            sniffer.Populate(FileTypes.Common);
+            sniffer.Populate(FileTypes.Unfrequent);
 
             var head = new byte[]
             {
@@ -83,7 +126,8 @@ namespace Myrmec.Test
         {
 
             var sniffer = new Sniffer();
-            sniffer.Populate(FileTypes.CommonFileTypes);
+            sniffer.Populate(FileTypes.Common);
+            sniffer.Populate(FileTypes.Unfrequent);
             var dataZip = new byte[]
             {
                 0x50,
@@ -111,6 +155,7 @@ namespace Myrmec.Test
             Assert.IsTrue(resultZipEmpty.Contains("apk"));
         }
 
+
         /// <summary>
         ///
         /// </summary>
@@ -118,7 +163,8 @@ namespace Myrmec.Test
         public void OverlapTest()
         {
             var sniffer = new Sniffer();
-            sniffer.Populate(FileTypes.CommonFileTypes);
+            sniffer.Populate(FileTypes.Common);
+            sniffer.Populate(FileTypes.Unfrequent);
 
             var data = new byte[]
             {
@@ -141,7 +187,8 @@ namespace Myrmec.Test
         {
 
             var sniffer = new Sniffer();
-            sniffer.Populate(FileTypes.CommonFileTypes);
+            sniffer.Populate(FileTypes.Common);
+            sniffer.Populate(FileTypes.Unfrequent);
             var head = new byte[]
             {
                 0xff,
@@ -160,7 +207,6 @@ namespace Myrmec.Test
         public void ComplexFileTypeTest()
         {
             var sniffer = new Sniffer();
-          //  sniffer.Populate(FileTypes.CommonFileTypes);
 
             Record record = new Record()
             {
@@ -180,5 +226,8 @@ namespace Myrmec.Test
             Assert.IsTrue(result.Contains("b"));
             Assert.IsTrue(result.Contains("c"));
         }
+
+      
+
     }
 }
