@@ -94,7 +94,7 @@ namespace Myrmec
         /// </summary>
         public bool IsComplexMetadata
         {
-            get => (Offset > 0) || (Extentions.Contains("?"));
+            get => (Offset > 0) || (Hex.Contains("?"));
         }
     }
 }

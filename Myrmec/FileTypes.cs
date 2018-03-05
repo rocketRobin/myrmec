@@ -115,6 +115,10 @@ namespace Myrmec
                 new Record("swf", "43 57 53"),
                 new Record("swf", "46 57 53"),
                 new Record("deb", "21 3C 61 72 63 68 3E"),
+
+                // complext
+                new Record("jpg,jpeg","FF D8 FF E0 ?? ?? 4A 46 49 46 00 01"),
+                new Record("jpg,jpeg","FF D8 FF E1 ?? ?? 45 78 69 66 00 00"),
             };
         }
 
