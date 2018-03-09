@@ -1,3 +1,10 @@
+## News
+
+next version almost done,but need some test.
+If you want a .net framework version or want to reconize jpg file, please download the source code,it already support this.
+I've been busy recently ... When I have some time， I will make tests and release next version, thanks.
+
+
 ## What is Myrmec ##
 Myrmec is a library that used to identifie real file format type by detecting the file binary head with out file extention like `xxxxx.png`.
 
