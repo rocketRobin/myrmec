@@ -107,7 +107,6 @@ namespace Myrmec
                 new Record("xz tar.xz", "FD 37 7A 58 5A 00 00"),
                 new Record("7z", "37 7A BC AF 27 1C"),
                 new Record("mpg mpeg", "00 00 01 BA"),
-                new Record("mpg mpeg", "47"),
                 new Record("mpg mpeg", "00 00 01 B3"),
                 new Record("woff", "77 4F 46 46"),
                 new Record("woff2", "77 4F 46 32"),

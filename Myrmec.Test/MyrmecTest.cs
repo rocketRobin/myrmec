@@ -251,5 +251,22 @@ namespace Myrmec.Test
             Assert.IsTrue(result.Contains("jpg"));
             Assert.IsTrue(result.Contains("jpeg"));
         }
+
+
+        [TestMethod]
+        public void GifTest()
+        {
+            var sniffer = new Sniffer();
+            sniffer.Populate(FileTypes.Common);
+
+            var data = new byte[]
+            {
+                0x47, 0x49, 0x46, 0x38, 0x39,
+                0x61, 0x2c, 0x01, 0xe0, 0x00
+            };
+            var results = sniffer.Match(data, true);
+
+            Assert.IsTrue(results.Contains("gif"));
+        }
     }
 }
