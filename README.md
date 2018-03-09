@@ -2,7 +2,7 @@
 
 next version almost done,but need some test.
 If you want a .net framework version or want to reconize jpg file, please download the source code,it already support this.
-I am bussness few days... when I have some time I will make test and release next version, thanks.
+I've been busy recently ... When I have some time， I will make tests and release next version, thanks.
 
 
 ## What is Myrmec ##
