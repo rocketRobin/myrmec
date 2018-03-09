@@ -267,6 +267,7 @@ namespace Myrmec.Test
             var results = sniffer.Match(data, true);
 
             Assert.IsTrue(results.Contains("gif"));
+            Assert.IsFalse(results.Contains("mpg"));
         }
     }
 }
