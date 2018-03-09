@@ -1,4 +1,4 @@
-##News
+## News
 
 next version almost done,but need some test.
 If you want a .net framework version or want to reconize jpg file, please download the source code,it already support this.
