@@ -25,10 +25,11 @@ That was very easy.
     // create a sniffer instance.
     Sniffer sniffer = new Sniffer();
 
-	// populate with mata data.
-    sniffer.Populate(FileTypes.CommonFileTypes);
+    // populate with mata data.
+    // FileTypes.Common contains file types that we usually see.
+    sniffer.Populate(FileTypes.Common);
 	
-	// get file head byte, may be 20 bytes enough.
+    // get file head byte, may be 20 bytes enough.
     byte[] fileHead = ReadFileHead();
 
 	// start match.
