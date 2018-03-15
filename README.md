@@ -1,8 +1,9 @@
-## News
+## Version 1.1 released!
 
-next version almost done,but need some test.
-If you want a .net framework version or want to reconize jpg file, please download the source code,it already support this.
-I've been busy recently ... When I have some time， I will make tests and release next version, thanks.
+1. Support discontinuous binary, such as `0x11,0x22,??,??,0x33,0x66`
+2. Support offset, such as `0x11,0x22,0x33` but has offset 10
+3. Obsolete `FileTypes.CommonFileTypes ` and instead with `FileTypes.Common`
+By the way: now fully support jpeg.
 
 
 ## What is Myrmec ##
@@ -78,29 +79,4 @@ The result is
 ## Matedate source ##
 
 the metadata information from wiki pedia [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures).
-
-
-## Not support ##
-
-The file type matedate only suport that file hex head has no offset and byte value continuous, for example, the following examples do not support:
-
-Jpg file
-
-	jpg file head not support: FF D8 FF E0 ?? ?? 4A 46 49 46 00 01
-
-this format middle part allows an arbitrary value, but another jpg format is supported:
-
-Jpg file
-
-	jpg file head supported: FF D8 FF DB 
-
-PDB file
-
-	PDB file head not support: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-
-this format has offset 11,so not support.
-
-## Road Map
-
-1. Next major vertion I will add the support of file format that contains offset or contains arbitrary value.
 
