@@ -77,7 +77,7 @@ The result is
 
 ## Api ducument ##
 
-[git hub pages](https://rocketrobin.github.io/myrmec-website/api/index.html)
+[github pages](https://rocketrobin.github.io/myrmec-website/api/index.html)
 
 ## Matedate source ##
 
