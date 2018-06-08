@@ -615,6 +615,11 @@ namespace Myrmec
                 throw new ArgumentNullException(nameof(extention));
             }
 
+            if (extention.StartsWith("."))
+            {
+                extention = extention.TrimStart('.');
+            }
+
             if (!MimeTypeDictionary.TryGetValue(extention, out string mimeType))
             {
                 mimeType = "application/octet-stream";
