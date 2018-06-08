@@ -11,10 +11,13 @@ namespace Myrmec
     /// <summary>
     /// Common file types for populate a new sniffer instance.
     /// </summary>
+
+    [Obsolete("please use populate the file types only you need.")]
     public class FileTypes
     {
         static FileTypes()
         {
+            
             Unfrequent = new List<Record>
             {
                 new Record("bin", "53 50 30 31"),
@@ -125,18 +128,20 @@ namespace Myrmec
         /// Gets CommonFileTypes.
         /// Replace this with <see cref="Common"/>
         /// </summary>
-        [Obsolete("See Common")]
+        [Obsolete("please use populate the file types only you need.")]
         public static List<Record> CommonFileTypes { get => Common; }
 
         /// <summary>
         /// Gets Common It contains the format of the file we often see.
         /// </summary>
+        [Obsolete("please use populate the file types only you need.")]
         public static List<Record> Common { get; set; }
 
 
         /// <summary>
         /// It contains unfrequent file formats.
         /// </summary>
+        [Obsolete("please use populate the file types only you need.")]
         public static List<Record> Unfrequent { get; set; }
     }
 }
