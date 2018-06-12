@@ -32,16 +32,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace Myrmec
+namespace Myrmec.Mime
 {
     /// <summary>
     /// A mapping of file name extensions to the corresponding MIME-type.
     /// </summary>
-    public static class MimeTypes
+    public static class MimeType
     {
         private static readonly Dictionary<string, string> MimeTypeDictionary;
 
-        static MimeTypes()
+        static MimeType()
         {
             MimeTypeDictionary = new Dictionary<string, string>(new OptimizedOrdinalIgnoreCaseComparer())
             {

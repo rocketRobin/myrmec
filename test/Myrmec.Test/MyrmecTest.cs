@@ -4,6 +4,7 @@
 // </copyright>
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Myrmec.Mime;
 using System.Linq;
 
 namespace Myrmec.Test
@@ -149,7 +150,7 @@ namespace Myrmec.Test
             };
 
             var result = sniffer.Match(head);
-            var mimeType = MimeTypes.GetMimeType(result.First());
+            var mimeType = MimeType.GetMimeType(result.First());
             Assert.IsTrue(mimeType == "image/jpeg");
         }
 

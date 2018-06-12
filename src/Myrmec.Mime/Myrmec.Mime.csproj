@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net45;netstandard1.3</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>rocket robin</Authors>
+    <Company>rocket robin</Company>
+    <Description>This is a very small library, with only one function, which is to convert the file suffix name to the corresponding MIME type, and if you want to identify the real format of the file, you can refer to the myrmec project.</Description>
+    <Copyright>Copyright (c) Rocket Robin</Copyright>
+    <PackageLicenseUrl>https://github.com/rocketRobin/myrmec/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/rocketRobin/myrmec</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rocketRobin/myrmec</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>MIME</PackageTags>
+    <PackageReleaseNotes>This project is independent from the myrmec project</PackageReleaseNotes>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+</Project>

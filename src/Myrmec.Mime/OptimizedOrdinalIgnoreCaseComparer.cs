@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Myrmec
+namespace Myrmec.Mime
 {
     /// <summary>
     /// An optimized version of <see cref="StringComparer.OrdinalIgnoreCase">StringComparer.OrdinalIgnoreCase</see>.

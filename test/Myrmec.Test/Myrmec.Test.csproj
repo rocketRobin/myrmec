@@ -15,7 +15,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Myrmec\Myrmec.csproj" />
+    <ProjectReference Include="..\..\src\Myrmec\Myrmec.csproj" />
   </ItemGroup>
 
 </Project>

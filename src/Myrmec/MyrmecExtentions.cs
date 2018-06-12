@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Myrmec.Mime;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Myrmec
             var hex = record.Hex;
             if (record.Offset > 0)
             {
-                hex  = Repeat("??", record.Offset, ',') + hex;
+                hex = Repeat("??", record.Offset, ',') + hex;
             }
             var byteStringArray = hex.Split(',', ' ');
 
@@ -111,12 +112,14 @@ namespace Myrmec
 
         /// <summary>
         /// Get this extention's Mime type name.
+        /// <see cref=" MimeTypeStringExtentions.MimeType(string)"/>
         /// </summary>
         /// <param name="source"></param>
         /// <returns>Mime type name.</returns>
+        [Obsolete]
         public static string MimeType(this string source)
         {
-            return MimeTypes.GetMimeType(source);
+            return Mime.MimeType.GetMimeType(source);
         }
 
         /// <summary>
